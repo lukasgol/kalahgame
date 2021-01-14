@@ -12,7 +12,7 @@ import java.util.Map;
 public class TestHelper {
 
     public static final int ID = 1;
-    public static final String URL = "http://localhost:8080/games/" + ID;
+    public static final String URI = "http://localhost:8080/games/" + ID;
     private static final Map<Integer, Integer> GAME_STATUS = Map.of(1, 0, 2, 6);
 
     public static Game createGame() {
@@ -35,11 +35,11 @@ public class TestHelper {
     }
 
     public static GameDto createGameDto() {
-        return new GameDto(URL, ID);
+        return new GameDto(URI, ID);
     }
 
     public static MoveResponseDto createMoveResponse() {
-        return new MoveResponseDto(ID, URL, GAME_STATUS);
+        return new MoveResponseDto(ID, URI, GAME_STATUS);
     }
 
     public static Game createGame(final Map<Integer, Pit> startBoard) {

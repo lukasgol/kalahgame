@@ -8,7 +8,7 @@ import lukasgol.kalahgame.uc.GameMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static lukasgol.kalahgame.TestHelper.URL;
+import static lukasgol.kalahgame.TestHelper.URI;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -32,7 +32,7 @@ class CreateGameUCTest {
         //given
         final Game game = TestHelper.createGame();
         when(gameService.createGame()).thenReturn(game);
-        when(gameMapper.mapGameToGameDto(game)).thenReturn(new GameDto(URL, ID));
+        when(gameMapper.mapGameToGameDto(game)).thenReturn(new GameDto(URI, ID));
         //when
         createGameUC.createGame();
         //then

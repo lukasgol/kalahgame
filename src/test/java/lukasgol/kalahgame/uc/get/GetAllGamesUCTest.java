@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 import static lukasgol.kalahgame.TestHelper.ID;
-import static lukasgol.kalahgame.TestHelper.URL;
+import static lukasgol.kalahgame.TestHelper.URI;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -35,7 +35,7 @@ class GetAllGamesUCTest {
         //given
         final Game game = TestHelper.createGame();
         when(gameService.getAllGames()).thenReturn(List.of(game));
-        final GameDto gameDto = new GameDto(URL, ID);
+        final GameDto gameDto = new GameDto(URI, ID);
         when(gameMapper.mapGameToGameDto(game)).thenReturn(gameDto);
         //when
         final List<GameDto> allGames = getAllGamesUC.getAllGames();

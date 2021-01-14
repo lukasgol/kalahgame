@@ -30,7 +30,7 @@ public class GameControllerTest {
     private final static String PLAY_URI = "/games/{gameId}/pits/{pitId}";
     private static final Integer PIT_ID = 3;
     private static final Integer GAME_ID = 1;
-    private static final String EXPECTED_URL = "http://localhost:8080/games/1";
+    private static final String EXPECTED_URI = "http://localhost:8080/games/1";
     private static final int EXPECTED_ID = 1;
 
     private MockMvc mockMvc;
@@ -56,7 +56,7 @@ public class GameControllerTest {
         mockMvc.perform(post(GAMES_URI))
                 //then
                 .andExpect(status().isCreated())
-                .andExpect(jsonPath("$.uri").value(EXPECTED_URL))
+                .andExpect(jsonPath("$.uri").value(EXPECTED_URI))
                 .andExpect(jsonPath("$.id").value(EXPECTED_ID));
     }
 
@@ -70,7 +70,7 @@ public class GameControllerTest {
                 //then
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].id", is(1)))
-                .andExpect(jsonPath("$[0].uri", is(EXPECTED_URL)));
+                .andExpect(jsonPath("$[0].uri", is(EXPECTED_URI)));
     }
 
     @Test
@@ -82,7 +82,7 @@ public class GameControllerTest {
         mockMvc.perform(put(PLAY_URI, GAME_ID, PIT_ID))
                 //then
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.uri").value(EXPECTED_URL))
+                .andExpect(jsonPath("$.uri").value(EXPECTED_URI))
                 .andExpect(jsonPath("$.id").value(EXPECTED_ID))
                 .andExpect(jsonPath("$.status").isMap())
                 .andExpect(jsonPath("$.status.1", is(0)))
